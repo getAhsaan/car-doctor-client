@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:gap-32 lg:flex-row">
@@ -16,7 +16,17 @@ const Login = () => {
         </div>
         <div className="card w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
-            <h2 className="text-4xl text-center font-bold">Login</h2>
+            <h2 className="text-4xl text-center font-bold">Register</h2>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="name"
+                className="input input-bordered"
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -36,35 +46,17 @@ const Login = () => {
                 placeholder="password"
                 className="input input-bordered"
               />
-              <label className="label">
-                <a
-                  href="#"
-                  className="label-text-alt link link-hover"
-                >
-                  Forgot password?
-                </a>
-              </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Sign In</button>
-            </div>
-            <p className="text-center">Or Sign In with</p>
-
-            <div className="flex mx-auto gap-4">
-              <button className="btn btn-sm">
-                <FcGoogle className="text-2xl"></FcGoogle>
-              </button>
-              <button className="btn btn-sm">
-                <FaGithub className="text-2xl"></FaGithub>
-              </button>
+              <button className="btn btn-primary">Sign Up</button>
             </div>
             <p className="text-center">
-              Don't have an account? Please{" "}
+              Have an account? Please{" "}
               <Link
-                to={"/register"}
+                to={"/login"}
                 className="text-secondary"
               >
-                Register
+                Login
               </Link>
             </p>
           </div>
@@ -74,4 +66,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
