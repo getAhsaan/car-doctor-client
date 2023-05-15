@@ -81,14 +81,6 @@ const Orders = () => {
       <h2 className="text-center text-3xl my-4">My Orders: {orders.length}</h2>
       <div className="overflow-x-auto w-full my-8">
         <table className="table w-full">
-          {/* head */}
-          {/* <thead>
-      <tr>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
-      </tr>
-    </thead> */}
           <tbody>
             {orders.map((order) => (
               <OrderRow

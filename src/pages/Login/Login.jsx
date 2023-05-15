@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
 import loginPic from "../../assets/images/login/login.svg";
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import SocialLogin from "../shared/SocialLogin/SocialLogin";
@@ -25,7 +23,6 @@ const Login = () => {
         console.log(user);
         navigate(from, { replace: true });
 
-    
       })
       .catch((error) => console.log(error));
   };
