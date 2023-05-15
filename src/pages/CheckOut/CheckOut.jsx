@@ -31,7 +31,7 @@ const CheckOut = () => {
     };
     console.log(order);
 
-    fetch("http://localhost:3300/orders", {
+    fetch("https://car-doctor-server-auemrd97g-getahsaan.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
