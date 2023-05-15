@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import SocialLogin from "../shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -22,22 +23,9 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        const loggedUser = {
-          email: user.email,
-        };
-        console.log(loggedUser);
-        // navigate(from, { replace: true });
-        fetch("http://localhost:3300/jwt", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(loggedUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log("jwt response", data);
-          });
+        navigate(from, { replace: true });
+
+    
       })
       .catch((error) => console.log(error));
   };
@@ -92,16 +80,6 @@ const Login = () => {
                 />
               </div>
             </form>
-            <p className="text-center">Or Sign In with</p>
-
-            <div className="flex mx-auto gap-4">
-              <button className="btn btn-sm">
-                <FcGoogle className="text-2xl"></FcGoogle>
-              </button>
-              <button className="btn btn-sm">
-                <FaGithub className="text-2xl"></FaGithub>
-              </button>
-            </div>
             <p className="text-center">
               Don't have an account? Please{" "}
               <Link
@@ -111,6 +89,7 @@ const Login = () => {
                 Register
               </Link>
             </p>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

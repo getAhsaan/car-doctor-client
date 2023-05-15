@@ -1,19 +1,32 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import OrderRow from "../OrderRow/OrderRow";
+import { useNavigate } from "react-router-dom";
 
 const Orders = () => {
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
   // console.log(orders);
 
   const url = `http://localhost:3300/orders?email=${user?.email}`;
 
   useEffect(() => {
-    fetch(url)
+    fetch(url, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("car-access-token")}`,
+      },
+    })
       .then((res) => res.json())
-      .then((data) => setOrders(data));
-  }, [url]);
+      .then((data) => {
+        if (!data.error) {
+          setOrders(data);
+        } else {
+          navigate("/");
+        }
+      });
+  }, [url, navigate]);
 
   // handle Delete
   const handleDelete = (id) => {
