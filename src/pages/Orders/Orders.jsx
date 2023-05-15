@@ -9,7 +9,7 @@ const Orders = () => {
   const navigate = useNavigate();
   // console.log(orders);
 
-  const url = `https://car-doctor-server-auemrd97g-getahsaan.vercel.app/orders?email=${user?.email}`;
+  const url = `https://car-doctor-server-getahsaan.vercel.app/orders?email=${user?.email}`;
 
   useEffect(() => {
     fetch(url, {
@@ -32,12 +32,9 @@ const Orders = () => {
   const handleDelete = (id) => {
     const proceed = confirm("Are sure you want to delete?");
     if (proceed) {
-      fetch(
-        `https://car-doctor-server-auemrd97g-getahsaan.vercel.app/orders/${id}`,
-        {
-          method: "DELETE",
-        }
-      )
+      fetch(`https://car-doctor-server-getahsaan.vercel.app/orders/${id}`, {
+        method: "DELETE",
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -52,16 +49,13 @@ const Orders = () => {
 
   // handle confirm order
   const handleConfirmOrders = (id) => {
-    fetch(
-      `https://car-doctor-server-auemrd97g-getahsaan.vercel.app/orders/${id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ status: "confirm" }),
-      }
-    )
+    fetch(`https://car-doctor-server-getahsaan.vercel.app/orders/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status: "confirm" }),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

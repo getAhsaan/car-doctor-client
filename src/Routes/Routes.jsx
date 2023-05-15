@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://car-doctor-server-auemrd97g-getahsaan.vercel.app/services/${params.id}`
+            `https://car-doctor-server-getahsaan.vercel.app/services/${params.id}`
           ),
       },
       {

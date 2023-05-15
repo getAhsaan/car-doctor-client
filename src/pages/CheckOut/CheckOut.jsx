@@ -31,7 +31,7 @@ const CheckOut = () => {
     };
     console.log(order);
 
-    fetch("https://car-doctor-server-auemrd97g-getahsaan.vercel.app/orders", {
+    fetch("https://car-doctor-server-getahsaan.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
