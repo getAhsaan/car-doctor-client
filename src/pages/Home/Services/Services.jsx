@@ -3,12 +3,14 @@ import ServiceCard from "./ServiceCard";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const [asc, setAsc] = useState(true);
 
   useEffect(() => {
-    fetch("https://car-doctor-server-getahsaan.vercel.app/services")
+    fetch(`https://car-doctor-server-psi-three.vercel.app/services?sort=${asc ? "asc" : "desc"}`)
       .then((res) => res.json())
       .then((data) => setServices(data));
-  }, []);
+  }, [asc]);
+
   return (
     <div>
       <div className="space-y-4 text-center my-8">
@@ -19,6 +21,14 @@ const Services = () => {
           humour, or randomised <br /> words which don't look even slightly
           believable.
         </p>
+      </div>
+      <div className="text-center my-4">
+        <button
+          className="btn btn-primary"
+          onClick={() => setAsc(!asc)}
+        >
+          Price : {asc ? "low to high" : "high to low"}
+        </button>
       </div>
       <div className="grid grid-cols-3 gap-8">
         {services.map((service) => (
